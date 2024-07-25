@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/shadcn/theme-provider";
+import { Locale } from "../../lib/i18n";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,11 +13,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: Locale };
 }>) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body className={`dark:bg-slate-800 ${inter.className}`}>
         <ThemeProvider
           attribute="class"
