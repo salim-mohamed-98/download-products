@@ -1,6 +1,9 @@
 import { DownloadSelect } from "@/components/download-select";
+import LanguageBtn from "@/components/lanugage-btn";
+import Languages from "@/components/lanugages";
 import ProductCardList from "@/components/product-card-list";
 import SearchBar from "@/components/search-bar";
+import { Button } from "@/components/shadcn/ui/button";
 import { ModeToggle } from "@/components/shadcn/ui/mode-toggle";
 import { Separator } from "@/components/shadcn/ui/separator";
 import { getDictionary } from "@/lib/get-dictionaries";
@@ -11,9 +14,12 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
   return (
     <main className="p-3 container">
       <div className="text-center mb-20">
-        <div className="flex justify-between container">
+        <div className="flex justify-between items-center container">
           <h1 className="text-xl text-center">{dict.greeting}</h1>
-          <ModeToggle />
+          <div className="flex items-center justify-between gap-4">
+            <Languages />
+            <ModeToggle />
+          </div>
         </div>
       </div>
       <div className="flex justify-between">

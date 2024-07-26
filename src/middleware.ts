@@ -32,7 +32,8 @@ export function middleware(request: NextRequest) {
       "/next.svg",
       "vercel.svg",
       // Your other files in `public`
-    ].includes(pathname)
+    ].includes(pathname) ||
+    pathname.startsWith("/images")
   )
     return;
 

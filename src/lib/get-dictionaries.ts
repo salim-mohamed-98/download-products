@@ -6,10 +6,12 @@ import { Locale } from "./i18n";
 const dictionaries = {
   "en-GB": () =>
     import("@/dictionaries/en-GB.json").then((module) => module.default),
-  "sv-SE": () =>
-    import("@/dictionaries/sv-SE.json").then((module) => module.default),
-  "ar-001": () =>
-    import("@/dictionaries/ar-001.json").then((module) => module.default),
+  "nl-NL": () =>
+    import("@/dictionaries/nl-NL.json").then((module) => module.default),
+  "de-DE": () =>
+    import("@/dictionaries/de-DE.json").then((module) => module.default),
+  "fr-FR": () =>
+    import("@/dictionaries/fr-FR.json").then((module) => module.default),
 };
 
 export const getDictionary = async (locale: Locale) =>
