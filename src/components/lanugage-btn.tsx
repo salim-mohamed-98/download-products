@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { Button } from "./shadcn/ui/button";
-import { Locale } from "@/lib/i18n";
-import { usePathname, useRouter } from "next/navigation";
+import { i18n, Locale } from "@/lib/i18n";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -11,14 +11,19 @@ type Props = {
 };
 
 export default function LanguageBtn({ locale, language }: Props) {
-  const router = useRouter();
+  const { push } = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const selected = pathname.startsWith(`/${locale}`);
 
   return (
     <Button
       onClick={() => {
-        router.push(`/${locale}`);
+        const locale_to_replace = i18n.locales.find((l) =>
+          pathname.startsWith(`/${l}`)
+        );
+        const new_url = pathname.replace(locale_to_replace!, locale);
+        push(`${new_url}?${searchParams}`);
       }}
       disabled={selected}
       size="icon"
