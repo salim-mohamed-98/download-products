@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/shadcn/theme-provider";
 import { Locale } from "../../lib/i18n";
 import NavBar from "@/components/nav-bar";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         >
           <NavBar locale={params.lang} />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
