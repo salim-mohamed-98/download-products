@@ -13,10 +13,10 @@ import {
 export function DownloadSelect() {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[180px] dark:border-gray-400">
         <SelectValue placeholder="Download as" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="dark:border-gray-400">
         <SelectGroup>
           <SelectItem value="json">Json file</SelectItem>
           <SelectItem value="csv">Csv file</SelectItem>

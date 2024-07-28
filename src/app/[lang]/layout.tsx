@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={params.lang}>
-      <body className={`dark:bg-slate-800 ${inter.className}`}>
+      <body className={` ${inter.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
