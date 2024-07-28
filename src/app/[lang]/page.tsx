@@ -1,6 +1,7 @@
 import { DownloadSelect } from "@/components/download-select";
 import LanguageBtn from "@/components/lanugage-btn";
 import Languages from "@/components/lanugages";
+import { PaginationBtns } from "@/components/pagination-btns";
 import ProductCardList from "@/components/product-card-list";
 import SearchBar from "@/components/search-bar";
 import { Button } from "@/components/shadcn/ui/button";
@@ -20,6 +21,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
         <Separator className="mt-5 bg-gray-300 shadow-md dark:bg-gray-600" />
       </div>
       <ProductCardList />
+      <PaginationBtns />
     </main>
   );
 }
