@@ -4,8 +4,26 @@ import ProductCardList from "@/components/product-card-list";
 import SearchBar from "@/components/search-bar";
 import { Separator } from "@/components/shadcn/ui/separator";
 import { i18n, Locale } from "@/lib/i18n";
+import { getTotalCountProduct } from "@/db/postgres/data";
 
-export default async function Home({ params }: { params: { lang: Locale } }) {
+const MAX_ITEMS_PER_PAGE = 10;
+
+export default async function Home({
+  params,
+  searchParams,
+}: {
+  params: { lang: Locale };
+  searchParams?: { page: string; query?: string; items_per_page?: string };
+}) {
+  const currentPage = Number(searchParams?.page) || 1;
+  const items_per_page = Math.min(
+    Number(searchParams?.items_per_page) || MAX_ITEMS_PER_PAGE,
+    MAX_ITEMS_PER_PAGE
+  );
+  const total_pages = Math.ceil(
+    (await getTotalCountProduct()) / MAX_ITEMS_PER_PAGE
+  );
+
   return (
     <main>
       <div className="sticky mb-4 shadow-md pt-6 top-0 z-50 bg-white dark:bg-black">
@@ -15,8 +33,11 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
         </div>
         <Separator className="mt-5 bg-gray-300 shadow-md dark:bg-gray-600" />
       </div>
-      <ProductCardList />
-      <ProductPagination total_pages={20} />
+      <ProductCardList
+        items_per_page={items_per_page}
+        current_page={currentPage}
+      />
+      <ProductPagination total_pages={total_pages} />
     </main>
   );
 }

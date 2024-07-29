@@ -1,11 +1,17 @@
 import React from "react";
 import ProductCard from "./product-card";
-import { selectAllProduct } from "@/db/postgres/data";
+import { getFilteredItems } from "@/db/postgres/data";
 
-type Props = {};
+type Props = {
+  items_per_page: number;
+  current_page: number;
+};
 
-export default async function ProductCardList({}: Props) {
-  const products = await selectAllProduct();
+export default async function ProductCardList({
+  items_per_page,
+  current_page,
+}: Props) {
+  const products = await getFilteredItems(current_page, items_per_page);
   return (
     <ul className="container space-y-4 mb-5">
       {products.map((product) => (
