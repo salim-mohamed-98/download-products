@@ -6,6 +6,7 @@ import { Separator } from "@/components/shadcn/ui/separator";
 import { i18n, Locale } from "@/lib/i18n";
 import { getTotalCountProduct } from "@/db/postgres/data";
 import { getDictionary } from "@/lib/get-dictionaries";
+import { Suspense } from "react";
 
 const MAX_ITEMS_PER_PAGE = 10;
 
@@ -23,7 +24,7 @@ export default async function Home({
     MAX_ITEMS_PER_PAGE
   );
   const total_pages = Math.ceil(
-    (await getTotalCountProduct()) / MAX_ITEMS_PER_PAGE
+    (await getTotalCountProduct(query)) / MAX_ITEMS_PER_PAGE
   );
   const language_dict = await getDictionary(params.lang);
   const search_bar_placheholder = language_dict.search_bar_placholer;
@@ -32,16 +33,21 @@ export default async function Home({
     <main>
       <div className="sticky mb-4 shadow-md pt-6 top-0 z-50 bg-white dark:bg-black">
         <div className="container flex justify-between">
-          <SearchBar placeholder={search_bar_placheholder} />
+          <div className="flex gap-3">
+            <SearchBar placeholder={search_bar_placheholder} />
+            <span className="text-red-400 ">(search temporary disabled)</span>
+          </div>
           <DownloadSelect />
         </div>
         <Separator className="mt-5 bg-gray-300 shadow-md dark:bg-gray-600" />
       </div>
-      <ProductCardList
-        items_per_page={items_per_page}
-        current_page={currentPage}
-      />
       <ProductPagination total_pages={total_pages} />
+      <ProductCardList
+        query={query}
+        current_page={currentPage}
+        items_per_page={items_per_page}
+      />
+      {/* <Suspense key={query + currentPage} fallback={"loading..."}></Suspense> */}
     </main>
   );
 }

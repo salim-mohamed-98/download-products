@@ -14,6 +14,7 @@ type Props = {
     title: string;
     sku: string;
     ean: string;
+    desc: string;
   };
 };
 
@@ -36,7 +37,10 @@ export default function ProductCard({ product }: Props) {
         </div>
         <div>
           <p>SKU: {product.sku}</p>
-          <p>EAN: {product.sku}</p>
+          <p>EAN: {product.ean}</p>
+          <p className="mt-3 text-ellipsis text-gray-500 font-medium">
+            {product.desc}
+          </p>
         </div>
       </CardContent>
     </Card>
