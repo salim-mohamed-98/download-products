@@ -33,7 +33,8 @@ export function middleware(request: NextRequest) {
       "vercel.svg",
       // Your other files in `public`
     ].includes(pathname) ||
-    pathname.startsWith("/images")
+    pathname.startsWith("/images") ||
+    pathname.startsWith("/downloadable_files")
   )
     return;
 

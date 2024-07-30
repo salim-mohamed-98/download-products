@@ -33,9 +33,11 @@ export default async function Home({
     <main>
       <div className="sticky mb-4 shadow-md pt-6 top-0 z-50 bg-white dark:bg-black">
         <div className="container flex justify-between">
-          <div className="flex gap-3">
+          <div>
+            <span className="text-red-400 text-sm">
+              (search functionality in progress)
+            </span>
             <SearchBar placeholder={search_bar_placheholder} />
-            <span className="text-red-400 ">(search temporary disabled)</span>
           </div>
           <DownloadSelect />
         </div>
