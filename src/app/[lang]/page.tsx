@@ -41,12 +41,12 @@ export default async function Home({
         </div>
         <Separator className="mt-5 bg-gray-300 shadow-md dark:bg-gray-600" />
       </div>
-      <ProductPagination total_pages={total_pages} />
       <ProductCardList
         query={query}
         current_page={currentPage}
         items_per_page={items_per_page}
       />
+      <ProductPagination total_pages={total_pages} />
       {/* <Suspense key={query + currentPage} fallback={"loading..."}></Suspense> */}
     </main>
   );
