@@ -16,6 +16,7 @@ export default async function Home({
   params: { lang: Locale };
   searchParams?: { page: string; query?: string; items_per_page?: string };
 }) {
+  const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
   const items_per_page = Math.min(
     Number(searchParams?.items_per_page) || MAX_ITEMS_PER_PAGE,
@@ -24,7 +25,6 @@ export default async function Home({
   const total_pages = Math.ceil(
     (await getTotalCountProduct()) / MAX_ITEMS_PER_PAGE
   );
-
   const language_dict = await getDictionary(params.lang);
   const search_bar_placheholder = language_dict.search_bar_placholer;
 
