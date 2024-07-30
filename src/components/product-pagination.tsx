@@ -27,17 +27,17 @@ export function ProductPagination({ total_pages }: { total_pages: number }) {
     <Pagination className="mb-5">
       <PaginationContent>
         {/* prev */}
-        <PaginationItem>
-          {current_page_number >= 2 && (
+        {current_page_number >= 2 && (
+          <PaginationItem key={current_page_number - 1}>
             <PaginationPrevious
               isActive={true}
               href={createUrl(current_page_number - 1)}
             />
-          )}
-        </PaginationItem>
+          </PaginationItem>
+        )}
         {/* numbers */}
         {allPages.map((page) => (
-          <PaginationItem>
+          <PaginationItem key={page}>
             {page === "..." ? (
               <PaginationEllipsis />
             ) : (
@@ -51,14 +51,14 @@ export function ProductPagination({ total_pages }: { total_pages: number }) {
           </PaginationItem>
         ))}
         {/* next */}
-        <PaginationItem>
-          {current_page_number < total_pages && (
+        {current_page_number < total_pages && (
+          <PaginationItem key={current_page_number + 1}>
             <PaginationNext
               isActive={true}
               href={createUrl(current_page_number + 1)}
             />
-          )}
-        </PaginationItem>
+          </PaginationItem>
+        )}
       </PaginationContent>
     </Pagination>
   );
