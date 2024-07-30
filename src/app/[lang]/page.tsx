@@ -5,6 +5,7 @@ import SearchBar from "@/components/search-bar";
 import { Separator } from "@/components/shadcn/ui/separator";
 import { i18n, Locale } from "@/lib/i18n";
 import { getTotalCountProduct } from "@/db/postgres/data";
+import { getDictionary } from "@/lib/get-dictionaries";
 
 const MAX_ITEMS_PER_PAGE = 10;
 
@@ -24,11 +25,14 @@ export default async function Home({
     (await getTotalCountProduct()) / MAX_ITEMS_PER_PAGE
   );
 
+  const language_dict = await getDictionary(params.lang);
+  const search_bar_placheholder = language_dict.search_bar_placholer;
+
   return (
     <main>
       <div className="sticky mb-4 shadow-md pt-6 top-0 z-50 bg-white dark:bg-black">
         <div className="container flex justify-between">
-          <SearchBar />
+          <SearchBar placeholder={search_bar_placheholder} />
           <DownloadSelect />
         </div>
         <Separator className="mt-5 bg-gray-300 shadow-md dark:bg-gray-600" />

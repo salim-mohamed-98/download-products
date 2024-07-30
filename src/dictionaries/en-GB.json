@@ -1,3 +1,4 @@
 {
-  "greeting": "Hello, there mate!"
+  "greeting": "Hello, there mate!",
+  "search_bar_placholer": "sku, ean, title, description"
 }

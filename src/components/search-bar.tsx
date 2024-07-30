@@ -1,6 +1,6 @@
 import { Input } from "@/components/shadcn/ui/input";
 
-export default function SearchBar() {
+export default function SearchBar({ placeholder }: { placeholder: string }) {
   return (
     <div className="relative w-80 ">
       <svg
@@ -19,7 +19,7 @@ export default function SearchBar() {
       </svg>
       <Input
         type="text"
-        placeholder="sku, ean, name, description"
+        placeholder={placeholder}
         className="pl-12 pr-4 dark:border-gray-400"
       />
     </div>
