@@ -17,7 +17,7 @@ export default function SearchBar({ placeholder }: { placeholder: string }) {
       params.delete("query");
     }
 
-    replace(`${pathname}?${params.toString()}`);
+    // replace(`${pathname}?${params.toString()}`); // temporarily disabling
   }, 300);
   return (
     <div className="relative w-80 ">
@@ -36,6 +36,7 @@ export default function SearchBar({ placeholder }: { placeholder: string }) {
         />
       </svg>
       <Input
+        disabled
         type="text"
         placeholder={placeholder}
         className="pl-12 pr-4 dark:border-gray-400"
