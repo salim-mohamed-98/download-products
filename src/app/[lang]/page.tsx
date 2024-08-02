@@ -7,6 +7,7 @@ import { i18n, Locale } from "@/lib/i18n";
 import { getTotalCountProduct } from "@/db/postgres/data";
 import { getDictionary } from "@/lib/get-dictionaries";
 import { Suspense } from "react";
+import { MobilePopoverTools } from "@/components/mobile-pop-over-tools";
 
 const MAX_ITEMS_PER_PAGE = 10;
 
@@ -31,25 +32,33 @@ export default async function Home({
 
   return (
     <main>
-      <div className="sticky mb-4 shadow-md pt-6 top-0 z-50 bg-white dark:bg-black">
-        <div className="container flex justify-between">
-          <div>
+      <div className="sticky shadow-md  top-0 z-50 bg-white dark:bg-black">
+        <div className="md:container px-3 flex justify-between items-end gap-2 flex-row">
+          <div className="grow">
             <span className="text-red-400 text-sm">
               (search functionality in progress)
             </span>
             <SearchBar placeholder={search_bar_placheholder} />
           </div>
-          <DownloadSelect />
+          <div className="sm:hidden">
+            <MobilePopoverTools />
+          </div>
+          <div className="hidden sm:block">
+            <DownloadSelect />
+          </div>
         </div>
-        <Separator className="mt-5 bg-gray-300 shadow-md dark:bg-gray-600" />
+        <Separator className="mt-5 mb-5 bg-gray-300 shadow-md dark:bg-gray-600" />
       </div>
-      <ProductCardList
-        query={query}
-        current_page={currentPage}
-        items_per_page={items_per_page}
-      />
       <ProductPagination total_pages={total_pages} />
-      {/* <Suspense key={query + currentPage} fallback={"loading..."}></Suspense> */}
+
+      <Suspense key={query + currentPage} fallback={"loading..."}>
+        <ProductCardList
+          query={query}
+          current_page={currentPage}
+          items_per_page={items_per_page}
+        />
+      </Suspense>
+      <ProductPagination total_pages={total_pages} />
     </main>
   );
 }

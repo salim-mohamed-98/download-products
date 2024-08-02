@@ -20,7 +20,7 @@ export default function SearchBar({ placeholder }: { placeholder: string }) {
     // replace(`${pathname}?${params.toString()}`); // temporarily disabling
   }, 300);
   return (
-    <div className="relative w-80 ">
+    <div className="relative max-w-2xl w-full sm:w-80">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-500 dark:text-white left-3"
@@ -39,7 +39,7 @@ export default function SearchBar({ placeholder }: { placeholder: string }) {
         disabled
         type="text"
         placeholder={placeholder}
-        className="pl-12 pr-4 dark:border-gray-400"
+        className="pl-12 pr-4 dark:border-gray-400 w-full"
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}
       />

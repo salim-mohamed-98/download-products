@@ -17,14 +17,25 @@ export function DownloadSelect() {
   const [selectedValue, setSelectedValue] = useState<string | undefined>(
     undefined
   );
+
+  const clickHandler = () => {
+    if (selectedValue) {
+      const a = document.createElement("a");
+      a.href = `/downloadable_files/products.${selectedValue}`;
+      a.download = `products_list.${selectedValue}`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  };
+
   return (
-    <div className="flex items-center gap-3">
-      <span>Download as: </span>
+    <div className="flex items-center flex-wrap sm:flex-nowrap gap-3">
       <Select
         onValueChange={(value) => setSelectedValue(value)}
         value={selectedValue}
       >
-        <SelectTrigger className="w-[180px] dark:border-gray-400">
+        <SelectTrigger className="sm:w-[180px] dark:border-gray-400 w-full">
           <SelectValue placeholder="Pick file type" />
         </SelectTrigger>
         <SelectContent className="dark:border-gray-400">
@@ -36,17 +47,9 @@ export function DownloadSelect() {
         </SelectContent>
       </Select>
       <Button
+        className="w-full sm:w-auto"
         disabled={!selectedValue}
-        onClick={() => {
-          if (selectedValue) {
-            const a = document.createElement("a");
-            a.href = `/downloadable_files/products.${selectedValue}`;
-            a.download = `products_list.${selectedValue}`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-          }
-        }}
+        onClick={clickHandler}
       >
         Download
       </Button>
