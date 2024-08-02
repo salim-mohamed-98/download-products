@@ -25,16 +25,16 @@ export function ProductPagination({ total_pages }: { total_pages: number }) {
   const allPages = generatePagination(current_page_number, total_pages);
   return (
     <Pagination className="mb-5">
-      <PaginationContent>
+      <PaginationContent className="hidden sm:flex">
         {/* prev */}
-        {current_page_number >= 2 && (
-          <PaginationItem>
-            <PaginationPrevious
-              isActive={true}
-              href={createUrl(current_page_number - 1)}
-            />
-          </PaginationItem>
-        )}
+        {/* {current_page_number >= 2 && ( */}
+        <PaginationItem>
+          <PaginationPrevious
+            isActive={true}
+            href={createUrl(current_page_number - 1)}
+          />
+        </PaginationItem>
+        {/* )} */}
         {/* numbers */}
         {allPages.map((page, index) => (
           <PaginationItem key={`${page}-${index}`}>
@@ -51,14 +51,31 @@ export function ProductPagination({ total_pages }: { total_pages: number }) {
           </PaginationItem>
         ))}
         {/* next */}
-        {current_page_number < total_pages && (
-          <PaginationItem>
-            <PaginationNext
-              isActive={true}
-              href={createUrl(current_page_number + 1)}
-            />
-          </PaginationItem>
-        )}
+        {/* {current_page_number < total_pages && ( */}
+        <PaginationItem>
+          <PaginationNext
+            isActive={true}
+            href={createUrl(current_page_number + 1)}
+          />
+        </PaginationItem>
+        {/* )} */}
+      </PaginationContent>
+      <PaginationContent className="flex gap-2 sm:hidden">
+        <PaginationItem>
+          <PaginationPrevious
+            isActive={true}
+            href={createUrl(current_page_number - 1)}
+          />
+        </PaginationItem>
+
+        <PaginationItem>Page {current_page_number}</PaginationItem>
+
+        <PaginationItem>
+          <PaginationNext
+            isActive={true}
+            href={createUrl(current_page_number + 1)}
+          />
+        </PaginationItem>
       </PaginationContent>
     </Pagination>
   );
