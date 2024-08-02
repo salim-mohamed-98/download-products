@@ -15,7 +15,7 @@ export default async function ProductCardList({
 }: Props) {
   const products = await getFilteredItems(current_page, items_per_page, query);
   return (
-    <ul className="container space-y-4 mb-5">
+    <ul className="px-3 space-y-4 mb-5">
       {products.map((product) => (
         <li key={product.sku}>
           <ProductCard

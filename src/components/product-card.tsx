@@ -22,10 +22,10 @@ export default function ProductCard({ product }: Props) {
   return (
     <Card>
       <CardHeader>
-        <b>{product.title}</b>
+        <b className="text-pretty truncate line-clamp-2">{product.title}</b>
       </CardHeader>
-      <CardContent className="flex gap-4">
-        <div className="h-auto w-40">
+      <CardContent className="flex justify-center  gap-4">
+        <div className="min-w-60 max-h-60">
           <AspectRatio ratio={1 / 1} className="bg-muted">
             <Image
               src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
@@ -35,7 +35,7 @@ export default function ProductCard({ product }: Props) {
             />
           </AspectRatio>
         </div>
-        <div>
+        <div className="hidden md:block">
           <p>SKU: {product.sku}</p>
           <p>EAN: {product.ean}</p>
           <p className="mt-3 text-ellipsis text-gray-500 font-medium">
