@@ -83,7 +83,14 @@ export default function Footer() {
         </div>
         <div className="mt-8 md:mt-0 md:order-1">
           <p className="text-center text-base text-gray-400">
-            &copy; 2020 Workflow, Inc. All rights reserved.
+            Developed by{" "}
+            <a
+              className="underline text-sky-500 font-bold"
+              href="https://github.com/salim-mohamed-98"
+              target="_blank"
+            >
+              Salim Mohamed
+            </a>
           </p>
         </div>
       </div>

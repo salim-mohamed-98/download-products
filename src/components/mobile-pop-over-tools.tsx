@@ -9,7 +9,21 @@ import {
 import { EllipsisVertical } from "lucide-react";
 import { DownloadSelect } from "./download-select";
 
-export function MobilePopoverTools() {
+type PropType = {
+  dictionary: {
+    button_label: string;
+    header: string;
+    sub_header: string;
+    placeholder: string;
+    file_types: {
+      csv: string;
+      json: string;
+      xml: string;
+    };
+  };
+};
+
+export function MobilePopoverTools({ dictionary }: PropType) {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -20,13 +34,13 @@ export function MobilePopoverTools() {
       <PopoverContent className="w-screen " sideOffset={30}>
         <div className="grid gap-4">
           <div className="space-y-2">
-            <h4 className="font-medium leading-none">Downloding products</h4>
+            <h4 className="font-medium leading-none">{dictionary.header}</h4>
             <p className="text-sm text-muted-foreground">
-              Pick a file type you want to download.
+              {dictionary.sub_header}
             </p>
           </div>
           <div>
-            <DownloadSelect />
+            <DownloadSelect dictionary={dictionary} />
           </div>
         </div>
       </PopoverContent>

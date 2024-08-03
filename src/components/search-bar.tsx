@@ -3,7 +3,14 @@ import { Input } from "@/components/shadcn/ui/input";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
-export default function SearchBar({ placeholder }: { placeholder: string }) {
+export default function SearchBar({
+  dictionary,
+}: {
+  dictionary: {
+    search_bar_placholder: string;
+    message: string;
+  };
+}) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -38,7 +45,7 @@ export default function SearchBar({ placeholder }: { placeholder: string }) {
       <Input
         disabled
         type="text"
-        placeholder={placeholder}
+        placeholder={dictionary.search_bar_placholder}
         className="pl-12 pr-4 dark:border-gray-400 w-full"
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}

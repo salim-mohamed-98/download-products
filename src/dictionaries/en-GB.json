@@ -1,4 +1,18 @@
 {
   "greeting": "Hello, there mate!",
-  "search_bar_placholer": "sku, ean, title, description"
+  "search-bar": {
+    "search_bar_placholder": "sku, ean, title, description",
+    "message": "(search functionality in progress)"
+  },
+  "download-select": {
+    "header": "Downloding products",
+    "sub_header": "Pick a file type you want to download.",
+    "button_label": "Download",
+    "placeholder": "Pick file type",
+    "file_types": {
+      "csv": "Csv file",
+      "json": "Json file",
+      "xml": "Xml file"
+    }
+  }
 }

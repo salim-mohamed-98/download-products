@@ -1,4 +1,18 @@
 {
-  "greeting": "Hey vriend!",
-  "search_bar_placholer": "sku, ean, titel, beschrijving"
+  "greeting": "Hallo, daar maat!",
+  "search-bar": {
+    "search_bar_placholder": "sku, ean, titel, beschrijving",
+    "message": "(zoekfunctionaliteit in ontwikkeling)"
+  },
+  "download-select": {
+    "header": "Producten downloaden",
+    "sub_header": "Kies een bestandstype dat u wilt downloaden.",
+    "button_label": "Download",
+    "placeholder": "Kies bestandstype",
+    "file_types": {
+      "csv": "Csv-bestand",
+      "json": "Json-bestand",
+      "xml": "Xml-bestand"
+    }
+  }
 }

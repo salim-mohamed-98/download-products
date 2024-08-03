@@ -1,4 +1,18 @@
 {
-  "greeting": "Hi Kumpel!",
-  "search_bar_placholer": "SKU, EAN, Titel, Beschreibung"
+  "greeting": "Hallo, da Kumpel!",
+  "search-bar": {
+    "search_bar_placholder": "sku, ean, Titel, Beschreibung",
+    "message": "(Suchfunktion in Arbeit)"
+  },
+  "download-select": {
+    "header": "Produkte herunterladen",
+    "sub_header": "Wählen Sie einen Dateityp zum Herunterladen aus.",
+    "button_label": "Download",
+    "placeholder": "Dateityp auswählen",
+    "file_types": {
+      "csv": "Csv-Datei",
+      "json": "Json-Datei",
+      "xml": "Xml-Datei"
+    }
+  }
 }

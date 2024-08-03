@@ -13,6 +13,7 @@ export async function getFilteredItems(
       ean: products_tb.ean,
       title: products_tb.title,
       description: products_tb.description,
+      images: products_tb.images,
     })
     .from(products_tb)
     .limit(10)

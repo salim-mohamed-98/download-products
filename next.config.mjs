@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/*",
       },
+      {
+        protocol: "http",
+        hostname: "xml.tepper.nl",
+        port: "",
+        pathname: "/images/productimages/**",
+      },
     ],
   },
 };

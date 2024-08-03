@@ -1,4 +1,18 @@
 {
-  "greeting": "Salut, mon pote !",
-  "search_bar_placholer": "sku, ean, titre, description"
+  "greeting": "Salut, mon pote!",
+  "search-bar": {
+    "search_bar_placholder": "sku, ean, titre, description",
+    "message": "(fonction de recherche en cours)"
+  },
+  "download-select": {
+    "header": "Téléchargement des produits",
+    "sub_header": "Choisissez un type de fichier à télécharger.",
+    "button_label": "Télécharger",
+    "placeholder": "Choisissez le type de fichier",
+    "file_types": {
+      "csv": "Fichier Csv",
+      "json": "Fichier Json",
+      "xml": "Fichier Xml"
+    }
+  }
 }

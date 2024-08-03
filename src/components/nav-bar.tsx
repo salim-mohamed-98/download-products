@@ -40,7 +40,7 @@ export default async function NavBar({ locale }: Props) {
               <h1 className="text-xl text-center">{dict.greeting}</h1>
               <div className="flex items-center justify-between gap-4">
                 <Languages />
-                <ModeToggle />
+                {/* <ModeToggle /> */}
               </div>
             </div>
           </SheetContent>
@@ -52,7 +52,7 @@ export default async function NavBar({ locale }: Props) {
           <h1 className="text-xl text-center">{dict.greeting}</h1>
           <div className="flex items-center justify-between gap-4">
             <Languages />
-            <ModeToggle />
+            {/* <ModeToggle /> */}
           </div>
         </div>
       </div>
