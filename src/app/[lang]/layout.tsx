@@ -23,16 +23,9 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body className={` ${inter.className}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NavBar locale={params.lang} />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <NavBar locale={params.lang} />
+        {children}
+        <Footer />
       </body>
     </html>
   );
