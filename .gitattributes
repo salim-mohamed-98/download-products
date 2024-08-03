@@ -1,3 +1,1 @@
-./public/downloadable_files/products.csv filter=lfs diff=lfs merge=lfs -text
-./public/downloadable_files/products.json filter=lfs diff=lfs merge=lfs -text
-./public/downloadable_files/products.xml filter=lfs diff=lfs merge=lfs -text
+./public/downloadable_files/* filter=lfs diff=lfs merge=lfs -text
