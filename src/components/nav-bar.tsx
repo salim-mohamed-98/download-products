@@ -1,5 +1,5 @@
 import React from "react";
-import Languages from "./lanugages";
+import Languages from "./langauges";
 import { ModeToggle } from "./shadcn/ui/mode-toggle";
 import { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/get-dictionaries";
